@@ -1,0 +1,181 @@
+﻿/* Tailwind imports */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Deep Water Green Theme */
+:root {
+  --deep-water: #013B2B;
+  --aqua-emerald: #03A66A;
+  --neon-mint: #003cff;
+  --dark-abyss: #001610;
+  --glass-frost: rgba(255, 255, 255, 0.12);
+}
+
+/* Liquid Background Animation */
+.liquid-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    var(--dark-abyss),
+    var(--deep-water),
+    var(--aqua-emerald),
+    var(--dark-abyss)
+  );
+  background-size: 400% 400%;
+  animation: liquidFlow 15s ease infinite;
+  z-index: 0;
+}
+
+@keyframes liquidFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Ripple Effects */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(0, 255, 191, 0.3);
+  transform: translate(-50%, -50%);
+  animation: rippleEffect 0.6s ease-out;
+}
+
+@keyframes rippleEffect {
+  to {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+  }
+}
+
+/* Glass Morphism Cards */
+.glass-card {
+  background: var(--glass-frost);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(3, 166, 106, 0.2);
+  border-radius: 16px;
+  box-shadow: 
+    0 8px 32px rgba(1, 59, 43, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Glowing Borders */
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(45deg, var(--aqua-emerald), var(--neon-mint));
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+  animation: glowPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+  from { opacity: 0.7; }
+  to { opacity: 1; }
+}
+
+/* Floating Animation */
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Liquid Buttons */
+.btn-liquid {
+  background: linear-gradient(45deg, var(--aqua-emerald), var(--neon-mint));
+  border: none;
+  border-radius: 25px;
+  color: var(--dark-abyss);
+  font-weight: 600;
+  padding: 12px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-liquid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn-liquid:hover::before {
+  left: 100%;
+}
+
+.btn-liquid:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 255, 191, 0.3);
+}
+
+/* Confidence Indicator */
+.confidence-meter {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.confidence-fill {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dasharray 0.5s ease;
+}
+
+.confidence-low { stroke: #ef4444; }
+.confidence-medium { stroke: #eab308; }
+.confidence-high { stroke: #00FFBF; }
+.confidence-optimal { stroke: #22c55e; }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--deep-water);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--aqua-emerald);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-mint);
+}
