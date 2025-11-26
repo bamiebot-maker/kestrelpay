@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-﻿import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider, AppContext } from './contexts/AppContext';
 import Landing from './screens/Landing';
@@ -23,12 +22,12 @@ function AppContent() {
     const checkInitialConnection = async () => {
       // Check if we were previously connected
       const wasConnected = localStorage.getItem('kestrelpay-connected') === 'true';
-      
+
       if (wasConnected) {
         // Auto-connect if previously connected
         await connectWallet();
       }
-      
+
       setIsLoading(false);
     };
 
@@ -66,10 +65,10 @@ function AppContent() {
         <div className="min-h-screen bg-gradient-to-br from-deep-water to-dark-abyss text-white">
           {/* Animated background */}
           <div className="liquid-background"></div>
-          
+
           <div className="relative z-10">
             <Header onDisconnect={handleDisconnect} />
-            
+
             <main className="container mx-auto px-4 pb-20 pt-4">
               <Routes>
                 <Route path="/dashboard" element={<Dashboard />} />
@@ -81,7 +80,7 @@ function AppContent() {
                 <Route path="/" element={<Navigate to="/dashboard" replace />} />
               </Routes>
             </main>
-            
+
             <BottomNav />
           </div>
         </div>
@@ -100,6 +99,3 @@ function App() {
 }
 
 export default App;
-=======
-﻿console.log("KestrelPay frontend placeholder");
->>>>>>> 856f61e275851dd523fe1640a39e18dae4942d86
