@@ -1,4 +1,4 @@
-﻿import React, { useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { AppContext } from '../contexts/AppContext';
 import { useNavigate } from 'react-router-dom';
 import SwarmConfidenceIndicator from '../components/SwarmConfidenceIndicator';
@@ -194,7 +194,7 @@ const CreateIntent = () => {
 
         {swarmAnalysis && !swarmAnalysis.recommended && (
           <p className="text-yellow-400 text-sm text-center">
-            ⚠️ Low execution confidence. Consider adjusting parameters.
+            ?? Low execution confidence. Consider adjusting parameters.
           </p>
         )}
       </form>

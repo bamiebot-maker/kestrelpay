@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 
 const Landing = ({ onConnect }) => {
   const [isConnecting, setIsConnecting] = useState(false);
@@ -51,7 +51,7 @@ const Landing = ({ onConnect }) => {
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 w-full max-w-4xl">
           <div className="glass-card p-6 text-center">
-            <div className="text-3xl mb-3">🐝</div>
+            <div className="text-3xl mb-3">??</div>
             <h3 className="text-lg font-semibold mb-2">Swarm Intelligence</h3>
             <p className="text-gray-300 text-sm">
               25 micro-bots analyze network conditions for optimal execution timing
@@ -59,7 +59,7 @@ const Landing = ({ onConnect }) => {
           </div>
           
           <div className="glass-card p-6 text-center">
-            <div className="text-3xl mb-3">⚡</div>
+            <div className="text-3xl mb-3">?</div>
             <h3 className="text-lg font-semibold mb-2">Gas Optimization</h3>
             <p className="text-gray-300 text-sm">
               Execute transactions when gas prices are lowest with AI-powered predictions
@@ -67,7 +67,7 @@ const Landing = ({ onConnect }) => {
           </div>
           
           <div className="glass-card p-6 text-center">
-            <div className="text-3xl mb-3">🌊</div>
+            <div className="text-3xl mb-3">??</div>
             <h3 className="text-lg font-semibold mb-2">LiquidFlow UI</h3>
             <p className="text-gray-300 text-sm">
               Beautiful deep water green interface with real-time visual feedback
@@ -89,7 +89,7 @@ const Landing = ({ onConnect }) => {
               </div>
             ) : (
               <div className="flex items-center space-x-2">
-                <span>🦊</span>
+                <span>??</span>
                 <span>Connect MetaMask</span>
               </div>
             )}

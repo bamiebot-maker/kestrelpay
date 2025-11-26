@@ -1,4 +1,4 @@
-﻿import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AppContext } from '../contexts/AppContext';
 import SwarmConfidenceIndicator from '../components/SwarmConfidenceIndicator';
 import IntentCard from '../components/IntentCard';

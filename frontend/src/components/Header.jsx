@@ -1,4 +1,4 @@
-﻿import React, { useContext } from 'react';
+import React, { useContext } from 'react';
 import { AppContext } from '../contexts/AppContext';
 
 const Header = ({ onDisconnect }) => {
@@ -61,7 +61,7 @@ const Header = ({ onDisconnect }) => {
                   className="w-10 h-10 bg-dark-abyss rounded-full border border-aqua-emerald border-opacity-30 flex items-center justify-center hover:border-opacity-50 transition-all"
                   title="Disconnect Wallet"
                 >
-                  <span className="text-aqua-emerald text-sm">🚪</span>
+                  <span className="text-aqua-emerald text-sm">??</span>
                 </button>
               </div>
             )}

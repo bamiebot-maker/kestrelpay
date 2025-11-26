@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import SwarmConfidenceIndicator from './SwarmConfidenceIndicator';
 
 const IntentCard = ({ intent }) => {
@@ -13,10 +13,10 @@ const IntentCard = ({ intent }) => {
 
   const getStatusIcon = (status) => {
     switch (status) {
-      case 'executed': return '✅';
-      case 'pending': return '⏳';
-      case 'cancelled': return '❌';
-      default: return '📝';
+      case 'executed': return '?';
+      case 'pending': return '?';
+      case 'cancelled': return '?';
+      default: return '??';
     }
   };
 

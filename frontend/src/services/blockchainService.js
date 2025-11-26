@@ -1,4 +1,4 @@
-﻿// Mock blockchain service that simulates real blockchain interactions
+// Mock blockchain service that simulates real blockchain interactions
 class MockBlockchainService {
   constructor() {
     this.walletAddress = '0x742d35Cc6634C0532925a3b8D4B5e1A1E3a3F6b8';

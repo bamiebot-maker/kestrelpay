@@ -1,15 +1,15 @@
-﻿import React from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const BottomNav = () => {
   const location = useLocation();
   
   const navItems = [
-    { path: '/dashboard', icon: '🏠', label: 'Home' },
-    { path: '/create', icon: '⚡', label: 'Create' },
-    { path: '/intents', icon: '📋', label: 'Intents' },
-    { path: '/analytics', icon: '📊', label: 'Analytics' },
-    { path: '/profile', icon: '👤', label: 'Profile' }
+    { path: '/dashboard', icon: '??', label: 'Home' },
+    { path: '/create', icon: '?', label: 'Create' },
+    { path: '/intents', icon: '??', label: 'Intents' },
+    { path: '/analytics', icon: '??', label: 'Analytics' },
+    { path: '/profile', icon: '??', label: 'Profile' }
   ];
 
   return (

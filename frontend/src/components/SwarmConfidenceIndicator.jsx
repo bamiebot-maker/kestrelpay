@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 
 const SwarmConfidenceIndicator = ({ confidence = 0, size = 'medium' }) => {
   const getConfidenceLevel = (score) => {
