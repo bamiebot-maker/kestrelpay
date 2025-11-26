@@ -1,7 +1,7 @@
-{
+﻿{
   "name": "kestrelpay-frontend",
   "private": true,
-  "version": "2.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,20 +11,13 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.16.0",
-    "ethers": "^6.8.0",
-    "axios": "^1.5.0",
-    "lucide-react": "^0.288.0",
-    "framer-motion": "^10.16.4",
-    "recharts": "^2.8.0"
+    "ethers": "^6.7.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.25",
-    "@types/react-dom": "^18.2.11",
-    "@vitejs/plugin-react": "^4.1.0",
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.5",
-    "vite": "^4.4.11"
+    "@vitejs/plugin-react": "^4.0.3",
+    "vite": "^4.4.5",
+    "tailwindcss": "^3.3.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0"
   }
 }
