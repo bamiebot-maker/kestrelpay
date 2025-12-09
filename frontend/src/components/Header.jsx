@@ -30,7 +30,7 @@ const Header = ({ onDisconnect }) => {
               <h1 className="text-xl font-bold bg-gradient-to-r from-aqua-emerald to-neon-mint bg-clip-text text-transparent">
                 KestrelPay
               </h1>
-              <p className="text-xs text-gray-400">Wave 2 MVP</p>
+              <p className="text-xs text-gray-400">Phase 2 MVP</p>
             </div>
           </div>
           
@@ -61,7 +61,7 @@ const Header = ({ onDisconnect }) => {
                   className="w-10 h-10 bg-dark-abyss rounded-full border border-aqua-emerald border-opacity-30 flex items-center justify-center hover:border-opacity-50 transition-all"
                   title="Disconnect Wallet"
                 >
-                  <span className="text-aqua-emerald text-sm">??</span>
+                  <span className="text-aqua-emerald text-sm">👨</span>
                 </button>
               </div>
             )}

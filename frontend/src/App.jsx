@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+﻿import React, { useState, useEffect, useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider, AppContext } from './contexts/AppContext';
 import Landing from './screens/Landing';
@@ -72,8 +72,8 @@ function AppContent() {
             <main className="container mx-auto px-4 pb-20 pt-4">
               <Routes>
                 <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/create" element={<CreateIntent />} />
-                <Route path="/intents" element={<ActiveIntents />} />
+                <Route path="/create-intent" element={<CreateIntent />} />
+                <Route path="/active-intents" element={<ActiveIntents />} />
                 <Route path="/history" element={<History />} />
                 <Route path="/analytics" element={<Analytics />} />
                 <Route path="/profile" element={<Profile />} />
