@@ -1,8 +1,11 @@
-﻿import React, { useState } from 'react';
+﻿import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AppContext } from '../contexts/AppContext';
 
 const CreateIntent = () => {
+  const { createIntent } = useContext(AppContext);
   const navigate = useNavigate();
+  
   const [formData, setFormData] = useState({
     receiver: '',
     amount: '',
@@ -46,24 +49,31 @@ const CreateIntent = () => {
     setIsCreating(true);
 
     try {
-      // Mock API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Reset form
-      setFormData({
-        receiver: '',
-        amount: '',
-        conditionType: 'time',
-        conditionValue: '',
-        token: 'ETH'
+      // Call the context's createIntent function
+      const result = await createIntent({
+        ...formData,
+        swarmAnalysis
       });
-      setSwarmAnalysis(null);
 
-      // Show success message
-      alert('Intent created successfully!');
+      if (result.success) {
+        // Reset form
+        setFormData({
+          receiver: '',
+          amount: '',
+          conditionType: 'time',
+          conditionValue: '',
+          token: 'ETH'
+        });
+        setSwarmAnalysis(null);
 
-      // Navigate to active intents page
-      navigate('/active-intents');
+        // Show success message
+        alert('Intent created successfully!');
+
+        // Navigate to active intents page
+        navigate('/active-intents');
+      } else {
+        alert(result.error || 'Failed to create intent');
+      }
     } catch (error) {
       console.error('Error creating intent:', error);
       alert('Failed to create intent. Please try again.');

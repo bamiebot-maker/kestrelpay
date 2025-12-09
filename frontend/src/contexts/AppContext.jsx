@@ -156,24 +156,26 @@ export function AppProvider({ children }) {
   };
 
   const connectWallet = async () => {
-    try {
-      const result = await blockchainService.connectWallet();
-      if (result.success) {
-        dispatch({
-          type: 'SET_USER',
-          payload: {
-            address: result.address,
-            balance: result.balance,
-            network: result.network
-          }
-        });
-        return { success: true };
-      }
-    } catch (error) {
-      console.error('Failed to connect wallet:', error);
-      return { success: false, error: error.message };
+  try {
+    const result = await blockchainService.connectWallet();
+    if (result.success) {
+      dispatch({
+        type: 'SET_USER',
+        payload: {
+          address: result.address,
+          balance: result.balance,
+          network: result.network
+        }
+      });
+      return { success: true };
+    } else {
+      return { success: false, error: result.error };
     }
-  };
+  } catch (error) {
+    console.error('Failed to connect wallet:', error);
+    return { success: false, error: error.message };
+  }
+};
 
   const createIntent = async (intentData) => {
     try {
@@ -201,6 +203,24 @@ export function AppProvider({ children }) {
     }
   };
 
+  const cancelIntent = async (intentId) => {
+  try {
+    // Update intent status to cancelled
+    dispatch({
+      type: 'UPDATE_INTENT',
+      payload: {
+        id: intentId,
+        status: 'cancelled',
+        cancelledAt: new Date().toISOString()
+      }
+    });
+    return { success: true };
+  } catch (error) {
+    console.error('Failed to cancel intent:', error);
+    return { success: false, error: error.message };
+  }
+};
+
   const executeIntent = async (intentId) => {
     try {
       const result = await blockchainService.executeIntent(intentId);
@@ -227,13 +247,14 @@ export function AppProvider({ children }) {
   };
 
   const value = {
-    state,
-    dispatch,
-    connectWallet,
-    disconnectWallet,
-    createIntent,
-    executeIntent
-  };
+  state,
+  dispatch,
+  connectWallet,
+  disconnectWallet,
+  createIntent,
+  executeIntent,
+  cancelIntent 
+};
 
   return (
     <AppContext.Provider value={value}>

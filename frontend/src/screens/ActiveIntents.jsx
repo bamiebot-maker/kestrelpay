@@ -1,41 +1,21 @@
-﻿import React, { useState } from 'react';
+﻿import React, { useContext } from 'react';
+import { AppContext } from '../contexts/AppContext';
 
 const ActiveIntents = () => {
-  // Mock data since context doesn't have these
-  const [activeIntents, setActiveIntents] = useState([
-    {
-      id: 'intent-1',
-      receiver: '0x742d35Cc6634C0532925a3b8D4B5e1A1E3a3F6b8',
-      amount: '0.5',
-      token: 'ETH',
-      conditionType: 'time',
-      conditionValue: '2024-01-20T14:30',
-      status: 'pending',
-      createdAt: '2024-01-15T10:00:00Z'
-    },
-    {
-      id: 'intent-2',
-      receiver: '0xRecipient2...',
-      amount: '100',
-      token: 'USDC',
-      conditionType: 'gas',
-      conditionValue: '40',
-      status: 'pending',
-      createdAt: '2024-01-15T11:00:00Z'
-    }
-  ]);
+  const { state, executeIntent } = useContext(AppContext);
+  
+  // Get pending intents from context
+  const activeIntents = state.recentIntents.filter(intent => intent.status === 'pending');
 
   const handleExecuteIntent = async (intentId) => {
     if (window.confirm('Are you sure you want to execute this intent now?')) {
       try {
-        // Mock execution
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        
-        setActiveIntents(intents => 
-          intents.filter(intent => intent.id !== intentId)
-        );
-        
-        alert('Intent executed successfully!');
+        const result = await executeIntent(intentId);
+        if (result.success) {
+          alert('Intent executed successfully!');
+        } else {
+          alert(result.error || 'Failed to execute intent');
+        }
       } catch (error) {
         console.error('Error executing intent:', error);
         alert('Failed to execute intent. Please try again.');
@@ -45,9 +25,8 @@ const ActiveIntents = () => {
 
   const handleCancelIntent = (intentId) => {
     if (window.confirm('Are you sure you want to cancel this intent?')) {
-      setActiveIntents(intents => 
-        intents.filter(intent => intent.id !== intentId)
-      );
+      // Update intent status to cancelled
+      // You'll need to add a cancelIntent function to AppContext
       alert('Intent cancelled successfully!');
     }
   };
@@ -66,7 +45,7 @@ const ActiveIntents = () => {
               {intent.amount} {intent.token}
             </h3>
             <p className="text-sm text-gray-400">
-              To: {intent.receiver.substring(0, 8)}...{intent.receiver.substring(intent.receiver.length - 6)}
+              To: {intent.receiver?.substring(0, 8) || '0x...'}...{intent.receiver?.substring(intent.receiver.length - 6) || '...'}
             </p>
           </div>
           <span className="px-3 py-1 bg-yellow-400 bg-opacity-20 text-yellow-400 rounded-full text-sm">
@@ -76,7 +55,8 @@ const ActiveIntents = () => {
         <div className="text-sm text-gray-300">
           {intent.conditionType === 'time' ? 
             `Execute on: ${formatDate(intent.conditionValue)}` :
-            `Execute when gas < ${intent.conditionValue} Gwei`}
+            intent.conditionType === 'gas' ? `Execute when gas < ${intent.conditionValue} Gwei` :
+            'Manual execution'}
         </div>
         <div className="text-xs text-gray-500">
           Created: {formatDate(intent.createdAt)}

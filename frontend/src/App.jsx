@@ -69,8 +69,7 @@ function AppContent() {
           <div className="relative z-10">
             <Header onDisconnect={handleDisconnect} />
 
-            <main className="container mx-auto px-4 pb-20 pt-4">
-              <Routes>
+            <main className="container mx-auto px-4 pb-24 pt-16 md:pb-20 md:pt-4 bottom-nav-safe">              <Routes>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/create-intent" element={<CreateIntent />} />
                 <Route path="/active-intents" element={<ActiveIntents />} />
