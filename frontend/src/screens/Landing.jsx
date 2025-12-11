@@ -380,7 +380,7 @@ const Landing = ({ onConnect }) => {
                 </div>
                 <div>
                   <h3 className="font-bold">KestrelPay</h3>
-                  <p className="text-xs text-gray-400">© 2024 All rights reserved</p>
+                  <p className="text-xs text-gray-400">© 2025 All rights reserved</p>
                 </div>
               </div>
               
